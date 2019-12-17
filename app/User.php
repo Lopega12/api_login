@@ -37,5 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     protected $primaryKey = 'email';
+    protected $keyType = 'string';
 
 }

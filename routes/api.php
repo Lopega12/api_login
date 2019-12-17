@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login','UserController@login')->middleware('checkLogin');
+Route::get('/accesos','AccesosControllerApi@all');
 

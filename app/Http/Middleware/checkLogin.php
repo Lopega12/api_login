@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Acceso;
 use Closure;
 use Firebase\JWT\JWT;
 
@@ -24,7 +25,7 @@ class checkLogin
             $decoded_array = (array) $decode;
             $state = User::find($decoded_array['email']);
            if(!empty($state) && $state->password == $decoded_array['password']){
-            $request->attributes->add(['login'=>true]);
+            $request->attributes->add(['user'=>$state]);
             }else{
                Log::alert("el email: ".$decoded_array['email']." ha intentado entrar");
            }
